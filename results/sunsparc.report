@@ -1,0 +1,33 @@
+
+  BYTE UNIX Benchmarks (Version 3.11)
+  System -- SunOS sun1307 5.5.1 Generic_103640-37 sun4u sparc SUNW,Ultra-5_10
+  Start Benchmark Run: Wed Feb 20 11:54:48 CST 2002
+   23 interactive users.
+Dhrystone 2 without register variables   586438.8 lps   (10 secs, 6 samples)
+Arithmetic Test (type = double)           85370.5 lps   (10 secs, 6 samples)
+Pipe-based Context Switching Test         26029.4 lps   (10 secs, 6 samples)
+Execl Throughput Test                        95.5 lps   (9 secs, 6 samples)
+Shell scripts (1 concurrent)                161.1 lpm   (60 secs, 3 samples)
+Shell scripts (2 concurrent)                 97.0 lpm   (60 secs, 3 samples)
+Shell scripts (4 concurrent)                 48.0 lpm   (60 secs, 3 samples)
+Shell scripts (8 concurrent)                 24.3 lpm   (60 secs, 3 samples)
+File Read  (10 seconds)                  178482.0 KBps  (10 secs, 6 samples)
+File Write (10 seconds)                    4533.0 KBps  (10 secs, 6 samples)
+File Copy  (10 seconds)                    5390.0 KBps  (10 secs, 6 samples)
+File Read  (30 seconds)                  188178.0 KBps  (30 secs, 6 samples)
+File Write (30 seconds)                    4764.0 KBps  (30 secs, 6 samples)
+File Copy  (30 seconds)                    4674.0 KBps  (30 secs, 6 samples)
+
+
+                     INDEX VALUES            
+TEST                                        BASELINE     RESULT      INDEX
+
+Arithmetic Test (type = double)               2541.7    85370.5       33.6
+Dhrystone 2 without register variables       22366.3   586438.8       26.2
+Execl Throughput Test                           16.5       95.5        5.8
+File Copy  (30 seconds)                        179.0     4674.0       26.1
+Pipe-based Context Switching Test             1318.5    26029.4       19.7
+Shell scripts (8 concurrent)                     4.0       24.3        6.1
+                                                                 =========
+     SUM of  6 items                                                 117.5
+     AVERAGE                                                          19.6

@@ -1,0 +1,172 @@
+#	This is a shell archive.
+#	Remove everything above and including the cut line.
+#	Then run the rest of the file through sh.
+#----cut here-----cut here-----cut here-----cut here-----
+#!/bin/sh
+# shar:	Shell Archiver
+#	Run the following text with /bin/sh to create:
+#	hp425t.report
+#	hp720.report
+#	next040.report
+# This archive created: Wed May 15 09:20:51 1991
+echo shar: extracting hp425t.report '(3051 characters)'
+sed 's/^XX//' << \ABRACADABRA > hp425t.report
+XX
+XX  BYTE UNIX Benchmarks (Version 3.9)
+XX  System -- HP-UX hpfmcb49 B.08.00 B 9000/42E 08000915959e
+XX  Start Benchmark Run: Thu May  9 14:31:51 EDT 1991
+XX   1 interactive users.
+XXDhrystone 2 without register variables    30581.5 lps   (10 secs, 6 samples)
+XXDhrystone 2 using register variables      30573.8 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = arithoh)         1453209.6 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = register)          3238.6 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = short)             3512.9 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = int)               3239.2 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = long)              3238.5 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = float)             2654.7 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = double)            2871.3 lps   (10 secs, 6 samples)
+XXSystem Call Overhead Test                  3630.7 lps   (10 secs, 6 samples)
+XXPipe Throughput Test                       1284.4 lps   (10 secs, 6 samples)
+XXPipe-based Context Switching Test           563.8 lps   (10 secs, 6 samples)
+XXProcess Creation Test                        57.6 lps   (10 secs, 6 samples)
+XXExecl Throughput Test                        43.4 lps   (9 secs, 6 samples)
+XXFile Read  (10 seconds)                    6748.0 KBps  (10 secs, 6 samples)
+XXFile Write (10 seconds)                    1200.0 KBps  (10 secs, 6 samples)
+XXFile Copy  (10 seconds)                     746.0 KBps  (10 secs, 6 samples)
+XXFile Read  (30 seconds)                    7077.0 KBps  (30 secs, 6 samples)
+XXFile Write (30 seconds)                    1789.0 KBps  (30 secs, 6 samples)
+XXFile Copy  (30 seconds)                     322.0 KBps  (30 secs, 6 samples)
+XXC Compiler Test                              47.6 lpm   (60 secs, 3 samples)
+XXShell scripts (1 concurrent)                 37.0 lpm   (60 secs, 3 samples)
+XXShell scripts (2 concurrent)                 20.0 lpm   (60 secs, 3 samples)
+XXShell scripts (4 concurrent)                 10.0 lpm   (60 secs, 3 samples)
+XXShell scripts (8 concurrent)                  5.0 lpm   (60 secs, 3 samples)
+XXDc: sqrt(2) to 99 decimal places           1205.2 lpm   (60 secs, 6 samples)
+XXRecursion Test--Tower of Hanoi              508.2 lps   (10 secs, 6 samples)
+XX
+XX
+XX                     INDEX VALUES            
+XXTEST                                        BASELINE     RESULT      INDEX
+XX
+XXArithmetic Test (type = double)               2541.7     2871.3        1.1
+XXDhrystone 2 without register variables       22366.3    30581.5        1.4
+XXExecl Throughput Test                           16.5       43.4        2.6
+XXFile Copy  (30 seconds)                        179.0      322.0        1.8
+XXPipe-based Context Switching Test             1318.5      563.8        0.4
+XXShell scripts (8 concurrent)                     4.0        5.0        1.2
+XX                                                                 =========
+XX     SUM of  6 items                                                   8.6
+XX     AVERAGE                                                           1.4
+ABRACADABRA
+if test 3051 -ne "`wc -c hp425t.report`"
+then
+echo shar: error transmitting hp425t.report '(should have been 3051 characters)'
+fi
+echo shar: extracting hp720.report '(3043 characters)'
+sed 's/^XX//' << \ABRACADABRA > hp720.report
+XX
+XX  BYTE UNIX Benchmarks (Version 1.1)
+XX  System -- HP-UX hp720 A.B8.01 A 9000/720 48914161
+XX  Start Benchmark Run: Fri Apr 19 09:40:12 EDT 1991
+XX   1 interactive users.
+XXDhrystone 2 without register variables    81533.8 lps   (10 secs, 6 samples)
+XXDhrystone 2 using register variables      81533.3 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = arithoh)         233156.1 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = register)          5195.7 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = short)             5134.0 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = int)               5195.6 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = long)              5195.7 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = float)            12939.7 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = double)           21286.0 lps   (10 secs, 6 samples)
+XXSystem Call Overhead Test                 23100.7 lps   (10 secs, 6 samples)
+XXPipe Throughput Test                       7723.2 lps   (10 secs, 6 samples)
+XXPipe-based Context Switching Test          3151.4 lps   (10 secs, 6 samples)
+XXProcess Creation Test                       221.5 lps   (10 secs, 6 samples)
+XXExecl Throughput Test                        70.6 lps   (9 secs, 6 samples)
+XXFile Read  (10 seconds)                   30048.0 KBps  (10 secs, 6 samples)
+XXFile Write (10 seconds)                    7766.0 KBps  (10 secs, 6 samples)
+XXFile Copy  (10 seconds)                     775.0 KBps  (10 secs, 6 samples)
+XXFile Read  (30 seconds)                   31091.0 KBps  (30 secs, 6 samples)
+XXFile Write (30 seconds)                    9033.0 KBps  (30 secs, 6 samples)
+XXFile Copy  (30 seconds)                     910.0 KBps  (30 secs, 6 samples)
+XXC Compiler Test                              86.9 lpm   (60 secs, 3 samples)
+XXShell scripts (1 concurrent)                 56.7 lpm   (60 secs, 3 samples)
+XXShell scripts (2 concurrent)                 34.0 lpm   (60 secs, 3 samples)
+XXShell scripts (4 concurrent)                 18.3 lpm   (60 secs, 3 samples)
+XXShell scripts (8 concurrent)                  9.3 lpm   (60 secs, 3 samples)
+XXDc: sqrt(2) to 99 decimal places           2907.5 lpm   (60 secs, 6 samples)
+XXRecursion Test--Tower of Hanoi              830.0 lps   (10 secs, 6 samples)
+XX
+XX
+XX                     INDEX VALUES            
+XXTEST                                        BASELINE     RESULT      INDEX
+XX
+XXArithmetic Test (type = double)               2541.7    21286.0        8.4
+XXDhrystone 2 without register variables       22366.3    81533.8        3.6
+XXExecl Throughput Test                           16.5       70.6        4.3
+XXFile Copy  (30 seconds)                        179.0      910.0        5.1
+XXPipe-based Context Switching Test             1318.5     3151.4        2.4
+XXShell scripts (8 concurrent)                     4.0        9.3        2.3
+XX                                                                 =========
+XX     SUM of  6 items                                                  26.1
+XX     AVERAGE                                                           4.3
+ABRACADABRA
+if test 3043 -ne "`wc -c hp720.report`"
+then
+echo shar: error transmitting hp720.report '(should have been 3043 characters)'
+fi
+echo shar: extracting next040.report '(3011 characters)'
+sed 's/^XX//' << \ABRACADABRA > next040.report
+XX
+XX  BYTE UNIX Benchmarks (Version 3.9)
+XX  System -- next040
+XX  Start Benchmark Run: Thu May  9 14:44:11 EDT 1991
+XX   0 interactive users.
+XXDhrystone 2 without register variables    23561.8 lps   (10 secs, 6 samples)
+XXDhrystone 2 using register variables      23563.6 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = arithoh)          47309.3 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = register)          3151.4 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = short)             3507.6 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = int)               3150.5 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = long)              3150.4 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = float)             2837.9 lps   (10 secs, 6 samples)
+XXArithmetic Test (type = double)            2837.7 lps   (10 secs, 6 samples)
+XXSystem Call Overhead Test                  8308.8 lps   (10 secs, 6 samples)
+XXPipe Throughput Test                       2966.7 lps   (10 secs, 6 samples)
+XXPipe-based Context Switching Test          1211.7 lps   (10 secs, 6 samples)
+XXProcess Creation Test                        43.5 lps   (10 secs, 6 samples)
+XXExecl Throughput Test                        26.6 lps   (9 secs, 6 samples)
+XXFile Read  (10 seconds)                   20209.0 KBps  (10 secs, 6 samples)
+XXFile Write (10 seconds)                    1000.0 KBps  (10 secs, 6 samples)
+XXFile Copy  (10 seconds)                     804.0 KBps  (10 secs, 6 samples)
+XXFile Read  (30 seconds)                   21031.0 KBps  (30 secs, 6 samples)
+XXFile Write (30 seconds)                     933.0 KBps  (30 secs, 6 samples)
+XXFile Copy  (30 seconds)                     765.0 KBps  (30 secs, 6 samples)
+XXC Compiler Test                              37.5 lpm   (62 secs, 3 samples)
+XXShell scripts (1 concurrent)                 28.3 lpm   (62 secs, 3 samples)
+XXShell scripts (2 concurrent)                 17.2 lpm   (62 secs, 3 samples)
+XXShell scripts (4 concurrent)                  9.6 lpm   (62 secs, 3 samples)
+XXShell scripts (8 concurrent)                  4.8 lpm   (62 secs, 3 samples)
+XXDc: sqrt(2) to 99 decimal places           1021.8 lpm   (62 secs, 6 samples)
+XXRecursion Test--Tower of Hanoi              313.3 lps   (10 secs, 6 samples)
+XX
+XX
+XX                     INDEX VALUES            
+XXTEST                                        BASELINE     RESULT      INDEX
+XX
+XXArithmetic Test (type = double)               2541.7     2837.7        1.1
+XXDhrystone 2 without register variables       22366.3    23561.8        1.0
+XXExecl Throughput Test                           16.5       26.6        1.6
+XXFile Copy  (30 seconds)                        179.0      765.0        4.3
+XXPipe-based Context Switching Test             1318.5     1211.7        0.9
+XXShell scripts (8 concurrent)                     4.0        4.8        1.2
+XX                                                                 =========
+XX     SUM of  6 items                                                  10.2
+XX     AVERAGE                                                           1.7
+ABRACADABRA
+if test 3011 -ne "`wc -c next040.report`"
+then
+echo shar: error transmitting next040.report '(should have been 3011 characters)'
+fi
+#	End of shell archive
+exit 0

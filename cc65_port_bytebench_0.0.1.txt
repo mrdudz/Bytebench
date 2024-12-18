@@ -1,0 +1,11 @@
+
+Archive:		cc65_port_bytebench_0.0.1.tar.gz
+Description:    a Unix Benchmark Collection
+Developed on:	c64 using cc65 2.8.5
+portability:	no machine dependend parts
+Dependancies:	none
+Status:			doesnt work (yet?) due to missing/incomplete library functions
+
+For questions or suggestions mail groepaz@gmx.net
+
+(w)2002 Groepaz/Hitmen. all rights reversed.

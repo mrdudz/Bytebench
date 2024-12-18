@@ -1,0 +1,6 @@
+Arithmetic Test (type = double)|10.0|lps|2541.7|2541.7|6
+Dhrystone 2 without register variables|10.0|lps|22366.4|22366.3|6
+Execl Throughput Test|9.4|lps|16.5|16.5|6
+File Copy  (30 seconds)|30|KBps|179|179|6
+Pipe-based Context Switching Test|10.0|lps|1318.5|1318.5|6
+Shell scripts (8 concurrent)|60.1|lpm|4.0|4.0|3

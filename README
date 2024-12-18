@@ -1,0 +1,158 @@
+Version 3.6 -- 5/15/91  19:30:16
+
+================================================================
+To use the new BYTE Unix Benchmarks:
+
+   make 
+   Run
+
+================================================================
+You may run individual benchmark programs and groups of programs.
+There are also a few options.
+
+  Run [<bench> ...] [<group> ...] [-qvd]
+
+	-q	quiet		no output to standard out
+	-v	verbose		extra output to standard out
+	-d	debug		Run is displayed as it is run
+
+     GROUP	BENCHMARK	EXPLANATION		SOURCE
+     --------   -----------	--------------------	-------------
+     index                      only those need for 
+                                generating the BYTE
+                                index
+		double		double arithmetic	src/arith.c
+		dhry2		dhrystone 2 w/o regs	src/dhry_1.c
+							src/dhry_2.c
+							src/dhry.h
+		execl		execl call		src/execl.c
+							src/big.c
+		fstime		filesystem throughput	src/fstime.c
+		pipe		pipe throughput		src/pipe.c
+		shell   	load system with	pgms/multi.sh
+				  concurrent shell	pgms/tst.sh
+				  scripts		src/looper.c
+     arithmetic
+		arithoh		arithmetic overhead 	src/arith.c
+		register	register arithmetic	src/arith.c
+		short		short arithmetic	src/arith.c
+		int		int arithmetic		src/arith.c
+		long		long arithmetic		src/arith.c
+		float		float arithmetic	src/arith.c
+		double		double arithmetic	src/arith.c
+     system
+		syscall		system call overhead	src/syscall.c
+		pipe		pipe throughput		src/pipe.c
+		context1	pipe context switch	src/context1.c
+		spawn		process creation	src/spawn.c
+		execl		execl call		src/execl.c
+		fstime		filesystem throughput	src/fstime.c
+     misc
+		C		compile and link	/bin/cc
+							src/looper.c
+		dc		calculations with dc	testdir/dc.dat
+							src/looper.c
+		hanoi		recursion 		src/hanoi.c
+							src/looper.c
+     dhry
+		dhry2		dhrystone 2 w/o regs	src/dhry_1.c
+							src/dhry_2.c
+							src/dhry.h
+		dhry2reg	dhrystone 2 with regs	src/dhry_1.c
+							src/dhry_2.c
+							src/dhry.h
+		shell   	load system with	pgms/multi.sh
+				  concurrent shell	pgms/tst.sh
+				  scripts
+                        ** Most C programs also include src/timeit.c
+
+===================== RELEASE NOTES =====================================
+
+========================  May 91 ==========================
+This is version 3. This set of programs should be able to determine if
+your system is BSD or SysV. (It uses the output format of time (1)
+to see. If you have any problems, contact me (by email,
+preferably): ben@bytepb.byte.com
+
+---
+
+The document doc/bench.doc describes the basic flow of the
+benchmark system. The document doc/bench3.doc describes the major
+changes in design of this version. As a user of the benchmarks,
+you should understand some of the methods that have been
+implemented to generate loop counts:
+
+Tests that are compiled C code:
+  The function wake_me(second, func) is included (from the file
+timeit.c). This function uses signal and alarm to set a countdown
+for the time request by the benchmark administration script
+(Run). As soon as the clock is started, the test is run with a
+counter keeping track of the number of loops that the test makes.
+When alarm sends its signal, the loop counter value is sent to stderr
+and the program terminates. Since the time resolution, signal
+trapping and other factors don't insure that the test is for the
+precise time that was requested, the test program is also run
+from the time (1) command. The real time value returned from time
+(1) is what is used in calculating the number of loops per second
+(or minute, depending on the test).  As is obvious, there is some
+overhead time that is not taken into account, therefore the
+number of loops per second is not absolute. The overhead of the
+test starting and stopping and the signal and alarm calls is
+common to the overhead of real applications. If a program loads
+quickly, the number of loops per second increases; a phenomenon
+that favors systems that can load programs quickly. (Setting the
+sticky bit of the test programs is not considered fair play.)
+
+Test that use existing UNIX programs or shell scripts:
+  The concept is the same as that of compiled tests, except the
+alarm and signal are contained in separate compiled program,
+looper (source is looper.c). Looper uses an execvp to invoke the
+test with its arguments. Here, the overhead includes the
+invocation and execution of looper.
+
+--
+
+The index numbers are generated from a baseline file that is in
+pgms/index.base. You can put tests that you wish in this file.
+All you need to do is take the results/log file from your
+baseline machine, edit out the comment and blank lines, and sort
+the result (vi/ex command: 1,$!sort). The sort in necessary
+because the process of generating the index report uses join (1).
+You can regenerate the reports by running "make report."
+
+--
+
+========================= Jan 90 =============================
+Tom Yager has joined the effort here at BYTE; he is responsible
+for many refinements in the UNIX benchmarks.
+
+The memory access tests have been deleted from the benchmarks.
+The file access tests have been reversed so that the test is run
+for a fixed time. The amount of data transfered (written, read,
+and copied) is the variable. !WARNING! This test can eat up a
+large hunk of disk space.
+
+The initial line of all shell scripts has been changed from the
+SCO and XENIX form (:) to the more standard form "#! /bin/sh".
+But different systems handle shell switching differently. Check
+the documentation on your system and find out how you are
+supposed to do it. Or, simpler yet, just run the benchmarks from
+the Bourne shell. (You may need to set SHELL=/bin/sh as well.)
+
+The options to Run have not been checked in a while. They may no
+longer function. Next time, I'll get back on them. There needs to
+be another option added (next time) that halts testing between
+each test. !WARNING! Some systems have caches that are not getting flushed
+before the next test or iteration is run. This can cause
+erroneous values. 
+
+========================= Sept 89 =============================
+The database (db) programs now have a tuneable message queue space.
+queue space. The default set in the Run script is 1024 bytes.
+Other major changes are in the format of the times. We now show
+Arithmetic and Geometric mean and standard deviation for User
+Time, System Time, and Real Time. Generally, in reporting, we
+plan on using the Real Time values with the benchs run with one
+active user (the bench user). Comments and arguments are requested.
+
+contact: BIX bensmith or rick_g
