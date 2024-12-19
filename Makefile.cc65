@@ -25,7 +25,7 @@
 ID="@(#)Makefile:3.9 -- 5/15/91 19:30:15";
 SHELL = /bin/sh
 #HZ = ????  	   #(read from environment)
-CFLAGS = -DTIME -t sim6502
+CFLAGS = -t sim6502
 OPTON = -O        #optimization on (give it your best shot) 
                   #            -- check your compiler man
 OPTOFF = -Od      #optimization off -- check your compiler man
@@ -52,11 +52,16 @@ SOURCES = arith.c big.c context1.c \
 DOCS = bench.doc bench3.doc
 TESTS = sort.src cctest.c dc.dat
 RESULTS = reports.shar
-BINS = $(PROGDIR)/arithoh $(PROGDIR)/register $(PROGDIR)/short \
+BINS = $(PROGDIR)/register $(PROGDIR)/short \
 	$(PROGDIR)/int $(PROGDIR)/long \
 	$(PROGDIR)/hanoi \
-	$(PROGDIR)/dhry2 $(PROGDIR)/dhry2reg  $(PROGDIR)/looper
+	$(PROGDIR)/arithoh
 
+# also comment out at top of Run.cc65!
+
+# these fail to compile/link:
+
+#$(PROGDIR)/dhry2 $(PROGDIR)/dhry2reg $(PROGDIR)/looper
 #$(PROGDIR)/execl \
 #$(PROGDIR)/spawn
 #$(PROGDIR)/pipe
@@ -186,42 +191,4 @@ report:
 
 # SCCS stuff and disk reproduction
 clean:
-	rm -f $(BINS)
-
-delta:
-	delta -y"development step" sccs/s.Run sccs/s.README
-	cd src; delta -y"development step" sccs
-	cd pgms; delta -y"development step" sccs
-	cd testdir; delta -y"development step" sccs
-	cd doc; delta -y"development step" sccs
-get:
-	get -e sccs/s.Run sccs/s.README
-	cd src; get -e sccs
-	cd pgms; get -e sccs
-	cd testdir; get -e sccs
-	cd doc; get -e sccs
-	chmod 744 $(SRCDIR)/* 
-	chmod 755 $(PROGDIR)/* *
-rel:
-	cd bench; rm -f Makefile Run README; get ../sccs
-	cd bench/src; rm -f *; get ../../src/sccs
-	cd bench/pgms; rm -f *; get ../../pgms/sccs
-	cd bench/testdir; rm -f *; get ../../testdir/sccs
-	cd bench/doc; rm -f *; get ../../doc/sccs
-	cd bench; chmod 744 src/* testdir/*
-	cd bench; chmod 755 * pgms/*
-
-tar48:
-	format /dev/rdsk/f05d9t 
-	tar cfb /dev/rdsk/f05d9t 20 bench
-	tar tf /dev/rdsk/f05d9t 
-
-tar96:
-	format /dev/rdsk/f05ht
-	tar cfb /dev/rdsk/f05ht 20 bench
-	tar tf /dev/rdsk/f05ht
-
-tar135:
-	format /dev/rdsk/f13dt
-	tar cfb /dev/rdsk/f13dt 20 bench
-	tar tf /dev/rdsk/f13dt
+	$(RM) $(BINS)

@@ -2,7 +2,7 @@
 #################### set your defaults here ##############
 FLAVOR="" # flavor of UNIX: if not determined by script: SysV or BSD
 #FULL_SUITE="dhry2 dhry2reg arithoh register short int long float double syscall pipe context1 spawn execl fstime C shell dc hanoi"
-FULL_SUITE="dhry2 dhry2reg arithoh register short int long syscall pipe context1 spawn execl fstime C shell dc hanoi"
+FULL_SUITE="register short int long C shell dc hanoi"
 ###############################################################################
 #  The BYTE UNIX Benchmarks - Release 3
 #          Module: Run   SID: 3.11 5/15/91 19:30:14
@@ -204,10 +204,13 @@ then
       mv ${RESULTDIR}/log ${RESULTDIR}/log.accum
    fi
 fi
-echo "|  BYTE UNIX Benchmarks (Version $version)" >>$LOGFILE
-echo "|  System --" `$UNAME` >>$LOGFILE
-echo "|  Start Benchmark Run: `date`" >>$LOGFILE
-echo "|  " `who | wc -l` "interactive users." >>$LOGFILE
+
+#somehow this causes problems
+#echo "|  BYTE UNIX Benchmarks (Version $version)" >>$LOGFILE
+#echo "|  System --" `$UNAME` >>$LOGFILE
+#echo "|  Start Benchmark Run: `date`" >>$LOGFILE
+#echo "|  " `who | wc -l` "interactive users." >>$LOGFILE
+
 #if not specified, do each bench 6 iterations
 iter=${iterations-6}
 if test $iter -eq 6
@@ -252,47 +255,47 @@ do # do level 1
     case $bench
     in
   dhry2)
-    options=${dhrytime-10}
+#    options=${dhrytime-10}
     logmsg="Dhrystone 2 without register variables"
     ;;
 
   dhry2reg)
-    options=${dhrytime-10}
+#    options=${dhrytime-10}
     logmsg="Dhrystone 2 using register variables"
     ;;
 
   arithoh|register|short|int|long)
-    options=${arithtime-10}
+#    options=${arithtime-10}
     logmsg="Arithmetic Test (type = $bench)"
     ;;
 
   float|double)
-    options=${arithtime-10}
+#    options=${arithtime-10}
     logmsg="Arithmetic Test (type = $bench)"
     ;;
 
   syscall)
-    options=${systime-10}
+#    options=${systime-10}
     logmsg="System Call Overhead Test"
     ;;
 
   context1)
-    options=${systime-10}
+#    options=${systime-10}
     logmsg="Pipe-based Context Switching Test"
     ;;
 
   pipe)   
-    options=${systime-10}
+#    options=${systime-10}
     logmsg="Pipe Throughput Test"
     ;;
 
   spawn)  
-    options=${systime-10}
+#    options=${systime-10}
     logmsg="Process Creation Test"
     ;;
 
   execl)  
-    options=${systime-10}
+#    options=${systime-10}
     logmsg="Execl Throughput Test"
     ;;
 
@@ -334,8 +337,8 @@ do # do level 1
     ;;
 
   hanoi)  
-    options=${systime-10}
-    stdout=/dev/null
+#    options=${systime-10}
+#    stdout=/dev/null
     logmsg="Recursion Test--Tower of Hanoi"
     parammsg='$param Disk Problem:'
     ;;
@@ -471,9 +474,12 @@ esac
     fi
 done # end do level 1  - all benchmarks requested
 ########## a few last items for the end ##############
-echo "" >>$LOGFILE
-echo "End Benchmark Run: `date`" >>$LOGFILE
-echo " " `who | wc -l` "interactive users." >>$LOGFILE
+
+#somehow causes problems
+#echo "" >>$LOGFILE
+#echo "End Benchmark Run: `date`" >>$LOGFILE
+#echo " " `who | wc -l` "interactive users." >>$LOGFILE
+
 # create the report
 ${SCRPDIR}/report.sh $LOGFILE > $REPORTLOG 
 ${SCRPDIR}/index.sh ${SCRPDIR}/index.base $LOGFILE >> $REPORTLOG

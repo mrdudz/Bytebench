@@ -27,6 +27,16 @@ BEGIN { rsum = 0.000; r2sum = 0.000; r_product = 0.0000;
 /loops/ { loops=$1; 
 	iter ++;
         }
+/cycles/ {
+    secs = $1 / 1000000;
+	mins=secs/60.000;
+	print mins;
+	if(loops) { rsum += loops/mins;
+		r2sum += (loops*loops)/(mins*mins);
+		r_product += (log(loops)-log(mins));
+		secs_sum += secs;
+		}
+    }
 /real/	{ if (flavor == "SysV") {time_str = $2; }
   	else { time_str = $1; }
 	# determine seconds from time_str
